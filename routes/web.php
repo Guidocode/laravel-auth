@@ -19,4 +19,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/admin', 'Admin\HomeController@index')->name('index');
+Route::middleware('auth')
+    ->namespace('Admin')
+    ->name('Admin')
+    ->prefix('Admin')
+    ->group(function() {
+        Route::get('/', 'Admin\HomeController@index')->name('index');
+    });
+
+// Rotta admin senza middleware
+// Route::get('/admin', 'Admin\HomeController@index')->name('index');
