@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div class="container">
+<div class="container bg-info">
     {{-- Posts --}}
     <!-- Titolo contenitore -->
-    <div class="title-content">Posts</div>
+    <h2 class="title-content">Posts</h2>
     <!-- /Titolo contenitore -->
 
 

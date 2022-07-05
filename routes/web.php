@@ -24,9 +24,9 @@ Route::middleware('auth')
     ->name('admin.')
     ->prefix('admin')
     ->group(function() {
-        Route::get('/', 'HomeController@index')->name('index');
+        Route::get('/', 'HomeController@index')->name('home');
         Route::resource('posts', 'PostController');
     });
 
 // Rotta admin senza middleware
-// Route::get('/admin', 'Admin\HomeController@index')->name('index');
+// Route::get('/admin', 'Admin\HomeController@index')->name('home');
