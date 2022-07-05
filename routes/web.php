@@ -21,10 +21,11 @@ Auth::routes();
 
 Route::middleware('auth')
     ->namespace('Admin')
-    ->name('Admin')
-    ->prefix('Admin')
+    ->name('admin.')
+    ->prefix('admin')
     ->group(function() {
-        Route::get('/', 'Admin\HomeController@index')->name('index');
+        Route::get('/', 'HomeController@index')->name('index');
+        Route::resource('posts', 'PostController');
     });
 
 // Rotta admin senza middleware

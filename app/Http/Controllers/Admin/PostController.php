@@ -18,10 +18,9 @@ class PostController extends Controller
         // mi vado a prendere i dati che voglio dal db e li passo alla view index
 
         $posts = Post::orderBy('id', 'desc')->get();
+        // dd($posts);
 
-        return view('posts.index', compact('posts'));
-
-        dd($posts);
+        return view('admin.posts.index', compact('posts'));
     }
 
     /**
