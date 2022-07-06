@@ -14,7 +14,7 @@
                     <div class="mb-3">
                         <label for="title" class="form-label">Titolo</label>
                         <input type="text" id="title" name="title" placeholder="Titolo"
-                        value="{{ old('title'), $post->title }}"
+                        value="{{ old('title', $post->title) }}"
                         class="form-control @error('title') is-invalid @enderror">
                         @error('title')
                             <p class="invalid-feedback">{{ $message }}</p>
@@ -23,7 +23,7 @@
                     <div class="mb-3">
                         <label for="image" class="form-label">Url immagine</label>
                         <input type="text" id="image" name="image" placeholder="URL immagine"
-                        value="{{ old('image'), $post->image }}"
+                        value="{{ old('image', $post->image) }}"
                         class="form-control @error('image') is-invalid @enderror">
                         @error('image')
                             <p class="invalid-feedback">{{ $message }}</p>
@@ -32,9 +32,7 @@
                     <div class="mb-3">
                         <label for="description" class="form-label">Descrizione</label> <br>
                         <textarea name="description" id="description" cols="30" rows="10"
-                        class="@error('title') is-invalid @enderror">
-                            {{ old('description'), $post->description }}
-                        </textarea>
+                        class="form-control @error('title') is-invalid @enderror">{{ old('description', $post->description) }}</textarea>
                         @error('description')
                             <p class="invalid-feedback">{{ $message }}</p>
                         @enderror

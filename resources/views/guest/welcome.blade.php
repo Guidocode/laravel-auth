@@ -80,7 +80,9 @@
             @endif
 
             <div class="content">
-                <h1>Pagina pubblica</h1>
+                <div class="title m-b-md">
+                    Pagina pubblica
+                </div>
             </div>
         </div>
     </body>

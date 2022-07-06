@@ -18,7 +18,7 @@ class PostController extends Controller
     {
         // mi vado a prendere i dati che voglio dal db e li passo alla view index
 
-        $posts = Post::orderBy('id', 'desc')->paginate(5);;
+        $posts = Post::orderBy('id', 'desc')->paginate(5);
         // dd($posts);
 
         return view('admin.posts.index', compact('posts'));
