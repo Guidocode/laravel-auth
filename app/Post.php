@@ -25,4 +25,14 @@ class Post extends Model
 
         return $slug;
     }
+
+
+    //fillable
+
+    protected $fillable = [
+        'title',
+        'slug',
+        'image',
+        'description'
+    ];
 }
