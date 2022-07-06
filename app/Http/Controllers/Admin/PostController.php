@@ -17,7 +17,7 @@ class PostController extends Controller
     {
         // mi vado a prendere i dati che voglio dal db e li passo alla view index
 
-        $posts = Post::orderBy('id', 'desc')->get();
+        $posts = Post::orderBy('id', 'desc')->paginate(5);;
         // dd($posts);
 
         return view('admin.posts.index', compact('posts'));
@@ -30,7 +30,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        // ritorno alla view create
+
+        return view('admin.posts.create');
     }
 
     /**
@@ -52,7 +54,11 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        // vado a prendere il singolo record tramite id e lo passo alla view show
+
+        $post = Post::find($id);
+
+        return view('admin.posts.show', compact('post'));
     }
 
     /**
