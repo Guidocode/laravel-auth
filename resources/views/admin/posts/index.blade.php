@@ -28,14 +28,14 @@
                     <td>{{$post->description}}</td>
                     <td class="d-flex">
                         <a class="btn btn-success mx-1" href="{{ route('admin.posts.show', $post) }}">SHOW</a>
-                        {{-- <a class="btn btn-primary mx-1" href="{{ route('comics.edit', $post) }}">EDIT</a>
+                        <a class="btn btn-primary mx-1" href="{{ route('admin.posts.edit', $post) }}">EDIT</a>
                         <form class="d-inline mx-1"
-                            onsubmit="return confirm('confermi l\'eliminazione di: {{ $comic->title }}?')"
-                            action="{{ route('comics.destroy', $post) }}" method="POST">
+                            onsubmit="return confirm('confermi l\'eliminazione di: {{ $post->title }}?')"
+                            action="{{ route('admin.posts.destroy', $post) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger" >DELETE</button>
-                        </form> --}}
+                        </form>
                     </td>
                 </tr>
             @endforeach

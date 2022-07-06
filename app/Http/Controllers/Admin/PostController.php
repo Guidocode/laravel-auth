@@ -80,7 +80,11 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        // modifico il record passato con id
+        $post = Post::find($id);
+
+        return view('admin.posts.edit', compact('post'));
+
     }
 
     /**
@@ -90,9 +94,17 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, $id)
     {
-        //
+        // salvo la modifica
+        $post = Post::find($id);
+
+        $data = $request->all();
+
+        $data['slug'] = Post::genereteSlug($data['title']);
+        $post->update($data);
+
+        return redirect()->route('admin.posts.show', $post);
     }
 
     /**
@@ -101,8 +113,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        // cancello l'elemento selezionato
+
+        $post->delete();
+
+        return redirect()->route('admin.posts.index');
     }
 }
